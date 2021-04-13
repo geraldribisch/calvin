@@ -33,7 +33,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Theme::src('favicon-16x16.png') ?>">
     <link rel="manifest" href="<?php echo Theme::src('site.webmanifest') ?>">
     
-    	<!-- Load Bludit Plugins: Site head -->
+    <!-- Load Bludit Plugins: Site head -->
 	<?php Theme::plugins('siteHead') ?>
 </head>
 
@@ -54,7 +54,7 @@
 
         <div class="s-header__logo">
             <a class="logo" href="<?php echo Theme::siteUrl() ?>">
-                <img src="i<?php echo ($site->logo()?$site->logo():Theme::src('images/logo.svg')) ?>" alt="Homepage">
+                <img src="<?php echo ($site->logo()?$site->logo():Theme::src('images/logo.svg')) ?>" alt="Homepage">
             </a>
         </div>
 
@@ -138,6 +138,7 @@
         <div class="s-footer__main">
 
             <div class="row">
+                
                 <?php if (pluginActivated('pluginAbout')): ?>
                 <div class="column large-3 medium-6 tab-12 s-footer__info">
 
@@ -150,7 +151,9 @@
                     </p>
 
                 </div> <!-- end s-footer__info -->
+                <?php endif ?>
 
+                
                 <div class="column large-2 medium-3 tab-6 s-footer__site-links">
 
                     <h5>Site Links</h5>
