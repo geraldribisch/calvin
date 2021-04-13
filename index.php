@@ -50,7 +50,12 @@
 
     <!-- header
     ================================================== -->
+    <?php if (Paginator::currentPage()==1): ?>
     <header class="s-header">
+    <?php else: ?>
+    <header class="s-header s-header--opaque">
+    <?php endif; ?>
+
 
         <div class="s-header__logo">
             <a class="logo" href="<?php echo Theme::siteUrl() ?>">

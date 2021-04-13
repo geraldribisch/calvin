@@ -4,6 +4,7 @@
         </div>
     <?php endif ?>
     
+    <?php if (Paginator::currentPage()==1): ?>
     <!-- hero
     ================================================== -->
     <section id="hero" class="s-hero">
@@ -70,7 +71,7 @@
         <?php endif; ?>
 
     </section> <!-- end s-hero -->
-
+    <?php endif ?>
 
     <!-- content
     ================================================== -->
