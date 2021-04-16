@@ -30,11 +30,11 @@
 
                             <div class="entry-author meta-blk">
                                 <div class="author-avatar">
-                                    <img class="avatar" src="<?php echo $page->user('profilePicture') ?>" alt="<?php echo $page->user('nickname') ?>">
+                                    <img class="avatar" src="<?php echo $page->user('profilePicture') ?>" alt="<?php $page->user('firstname').' '.$page->user('lastname') ?>">
                                 </div>
                                 <div class="byline">
                                     <span class="bytext">Posted By</span>
-                                    <a href="#0"><?php echo $page->user('nickname') ?></a>
+                                    <a href="#0"><?php echo $page->user('firstname').' '.$page->user('lastname') ?></a>
                                 </div>
                             </div>
 
