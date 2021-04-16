@@ -1,4 +1,25 @@
 <!-- Calvin for Bludit by Gerald Ribisch ================================================== -->
+<?php
+
+function console_log($output, $with_script_tags = true) {
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . ');';
+    if ($with_script_tags) {
+        $js_code = '<script>' . $js_code . '</script>';
+    }
+    echo $js_code;
+}
+
+$posts = array();
+$stickyPosts = array();
+
+foreach($content as $page) {
+    if($page->type()=="sticky")
+        array_push($stickyPosts, $page);
+    else
+        array_push($posts, $page);
+}
+?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="<?php echo Theme::lang() ?>">
 <head>
@@ -50,10 +71,11 @@
 
     <!-- header
     ================================================== -->
-    <?php if (Paginator::currentPage()==1): ?>
-    <header class="s-header">
-    <?php else: ?>
+
+    <?php if (empty($stickyPosts) or $WHERE_AM_I == 'page' or $WHERE_AM_I == 'category' ): ?>
     <header class="s-header s-header--opaque">
+    <?php else: ?>
+    <header class="s-header">
     <?php endif; ?>
 
 
@@ -131,6 +153,8 @@
     <?php
         if ($WHERE_AM_I == 'page') {
             include(THEME_DIR.'page.php');
+        } elseif ($WHERE_AM_I == 'category') {
+            include(THEME_DIR.'category.php');
         } else {
             include(THEME_DIR.'home.php');
         }
@@ -246,7 +270,7 @@
     <?php echo Theme::js('js/main.js') ?>
 
 	<!-- Load Bludit Plugins: Site Body End -->
-	<?php Theme::plugins('siteBodyEnd') ?>
+	<?php Theme::plugins('siteBodyEnd') ?> 
 
 </body>
 

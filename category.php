@@ -1,79 +1,38 @@
+<?php
+    // Check if the user is browsing a category
+    if ($WHERE_AM_I=='category') {
+        // Get the category key from the URL
+        $categoryKey = $url->slug();
+
+        // Create the Category-Object
+        $category = new Category($categoryKey);  
+    }
+?>
+
     <?php if (empty($content)): ?>
         <div>
             <?php $language->p('No pages found') ?>
         </div>
     <?php endif ?>
     
-    <?php if (!empty($stickyPosts)): ?>
-    <!-- hero
-    ================================================== -->
-    <section id="hero" class="s-hero">
-
-        <div class="s-hero__slider">
-            <?php foreach ($stickyPosts as $page): ?>
-            <?php if($page->type()=='sticky'): ?>
-            <div class="s-hero__slide">
-
-                <div class="s-hero__slide-bg" style="background-image: url('<?php echo $page->coverImage() ?>');"></div>
-
-                <div class="row s-hero__slide-content animate-this">
-                    <div class="column">
-                        <div class="s-hero__slide-meta">
-                            <?php if ($page->category()): ?>
-                            <span class="cat-links">
-                                <a href="<?php echo $page->categoryPermalink() ?>"><?php echo $page->category() ?></a> 
-                            </span>
-                            <?php endif; ?>    
-
-                            <span class="byline"> 
-                                Posted by 
-                                <span class="author">
-                                    <?php echo $page->user('nickname') ?>
-                                </span>
-                            </span>
-                        </div>
-                        <h1 class="s-hero__slide-text">
-                            <a href="<?php echo $page->permalink() ?>">
-                                <?php echo $page->title() ?>
-                            </a>
-                        </h1>
-                    </div>
-                </div>
-
-            </div> <!-- end s-hero__slide -->
-            <?php endif; ?>
-            <?php endforeach ?>
-
-        </div> <!-- end s-hero__slider -->
-
-        <div class="s-hero__social hide-on-mobile-small">
-            <p>Follow</p>
-            <span></span>
-            <ul class="s-hero__social-icons">
-                <?php foreach (Theme::socialNetworks() as $key=>$label): ?>
-                <li><a href="<?php echo $site->{$key}() ?>"><i class="fab fa-<?php echo $key ?>" aria-hidden="true"></i>
-                </a></li>
-                <?php endforeach ?>                                            
-            </ul>
-        </div> <!-- end s-hero__social -->
-
-        <?php if(count($stickyPosts) > 1): ?>
-        <div class="nav-arrows s-hero__nav-arrows">
-            <button class="s-hero__arrow-prev">
-                <svg viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" width="15" height="15"><path d="M1.5 7.5l4-4m-4 4l4 4m-4-4H14" stroke="currentColor"></path></svg>
-            </button>
-            <button class="s-hero__arrow-next">
-               <svg viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" width="15" height="15"><path d="M13.5 7.5l-4-4m4 4l-4 4m4-4H1" stroke="currentColor"></path></svg>
-            </button>
-        </div> <!-- end s-hero__arrows -->
-        <?php endif; ?>
-
-    </section> <!-- end s-hero -->
-    <?php endif ?>
-
     <!-- content
     ================================================== -->
-    <section class="s-content s-content--no-top-padding">
+    <section class="s-content">
+
+
+        <!-- page header
+        ================================================== -->
+        <div class="s-pageheader">
+            <div class="row">
+                <div class="column large-12">
+                    <h1 class="page-title">
+                        <span class="page-title__small-type">Category</span>
+                        <?php echo $category->name(); ?>
+                        <span class="page-title__small-type"><?php echo $category->description(); ?></span>
+                    </h1>
+                </div>
+            </div>
+        </div> <!-- end s-pageheader-->
 
 
         <!-- masonry
@@ -92,7 +51,7 @@
                     </div>
     
                     <!-- Articles -->
-	                <?php foreach ($posts as $page): ?>
+	                <?php foreach ($content as $page): ?>
                     <article class="brick entry" data-aos="fade-up">
                         
                     <?php if ($page->coverImage()): ?>
