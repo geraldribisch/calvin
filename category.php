@@ -70,7 +70,7 @@
                                 <div class="entry__meta">
                                     <span class="byline">By:
                                         <span class='author'>
-                                            <?php echo $page->user('nickname') ?>
+                                            <?php echo $page->user('firstname').' '.$page->user('lastname') ?>
                                     </span>
                                 </span>
                                 <?php if ($page->category()): ?>
