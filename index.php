@@ -72,7 +72,7 @@ foreach($content as $page) {
     <!-- header
     ================================================== -->
 
-    <?php if (empty($stickyPosts) or $WHERE_AM_I == 'page' or $WHERE_AM_I == 'category' ): ?>
+    <?php if (empty($stickyPosts) or $WHERE_AM_I == 'page' or $WHERE_AM_I == 'category' or $WHERE_AM_I == 'tag'): ?>
     <header class="s-header s-header--opaque">
     <?php else: ?>
     <header class="s-header">
@@ -171,7 +171,9 @@ foreach($content as $page) {
             }
         } elseif ($WHERE_AM_I == 'category') {
             include(THEME_DIR.'category.php');
-        } else {
+        } elseif ($WHERE_AM_I == 'tag') {
+            include(THEME_DIR.'tag.php');
+        }  else {
             include(THEME_DIR.'home.php');
         }
     ?>
