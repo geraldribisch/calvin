@@ -92,10 +92,18 @@ foreach($content as $page) {
                 <h3 class="s-header__nav-heading h6">Navigate to</h3>
 
                 <ul class="s-header__nav">
+                    <?php if($WHERE_AM_I == "home"): ?>
                     <li class="current"><a href="<?php echo Theme::siteUrl() ?>" title="">Home</a></li>
+                    <?php else: ?>
+                    <li><a href="<?php echo Theme::siteUrl() ?>" title="">Home</a></li>
+                    <?php endif ?>
                     
                     <!-- Categories -->
+                    <?php if($WHERE_AM_I == "category"): ?>
+                    <li class="has-children current">
+                    <?php else: ?>
                     <li class="has-children">
+                    <?php endif ?>
                         <a href="#0" title="">Categories</a>
                         <ul class="sub-menu">
                         <?php foreach ($categories->db as $categoryKey=>$categoryFields): ?>
@@ -106,7 +114,11 @@ foreach($content as $page) {
                     
                     <!-- Static pages -->
                     <?php foreach ($staticContent as $staticPage): ?>
+                        <?php if ($url->slug() == $staticPage->slug()):?>
+                    <li class="current"><a href="<?php echo $staticPage->permalink() ?>" title=""><?php echo $staticPage->title() ?></a></li>
+                        <?php else: ?>
                     <li><a href="<?php echo $staticPage->permalink() ?>" title=""><?php echo $staticPage->title() ?></a></li>
+                        <?php endif ?>
                     <?php endforeach ?>
                 </ul> <!-- end s-header__nav -->
 
