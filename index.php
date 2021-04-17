@@ -29,7 +29,7 @@ foreach($content as $page) {
     <meta charset="utf-8">
     <?php echo Theme::metaTags('title') ?>
     <?php echo Theme::metaTags('description') ?>
-    <meta name="author" content="">
+    <meta name="author" content="<?php echo $page->user('firstname').' '.$page->user('lastname') ?>">
     <meta name="generator" content="Bludit">
 
     <!-- mobile specific metas
@@ -99,7 +99,7 @@ foreach($content as $page) {
                     <?php endif ?>
                     
                     <!-- Categories -->
-                    <?php if($WHERE_AM_I == "category"): ?>
+                    <?php if($WHERE_AM_I == "category" or ($WHERE_AM_I == "page" and ($page->type() == "published" or $page->type() == "sticky"))): ?>
                     <li class="has-children current">
                     <?php else: ?>
                     <li class="has-children">
@@ -164,7 +164,11 @@ foreach($content as $page) {
     ================================================== -->
     <?php
         if ($WHERE_AM_I == 'page') {
-            include(THEME_DIR.'page.php');
+            if($page->type() == "static") {
+                include(THEME_DIR.'static.php');
+            } else {
+                include(THEME_DIR.'page.php');
+            }
         } elseif ($WHERE_AM_I == 'category') {
             include(THEME_DIR.'category.php');
         } else {

@@ -17,7 +17,7 @@
                     <?php endif ?>
                     
                     <div class="s-content__entry-header">
-                        <h1 class="s-content__title s-content__title--post"><?php echo $page->title() ?></h1>
+                        <h1 class="s-content__title s-content__title--post"><?php echo $page->title(); ?></h1>
                     </div> <!-- end s-content__entry-header -->
 
                     <div class="s-content__primary">
