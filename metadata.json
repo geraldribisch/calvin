@@ -1,10 +1,10 @@
 {
 	"author": "Gerald",
 	"email": "",
-	"website": "https://themes.bludit.com",
-	"version": "0.1",
+	"website": "https://github.com/geraldribisch/calvin/",
+	"version": "1.0",
 	"releaseDate": "2021-04-13",
 	"license": "MIT",
-	"compatible": "3.10.0",
-	"notes": ""
+	"compatible": "3.13.1",
+	"notes": "A clean, simple, and versatile blog template designed by StyleShout"
 }
