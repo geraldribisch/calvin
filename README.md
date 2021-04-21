@@ -1,5 +1,5 @@
 # Calvin
-Calvin theme for Bludit based in Typerite template by Styleshout.
+Calvin theme for Bludit based on Calvin template by Styleshout.
 - https://www.styleshout.com/free-templates/calvin/
 
 ## Features
