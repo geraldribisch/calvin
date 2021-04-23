@@ -22,7 +22,7 @@ You can help us with the missing features by creating a pull request.
 - Bludit v3.13.1
 
 ## License
-Typerite is based on Calvin template by [Styleshout.com](https://www.styleshout.com/free-templates/calvin/), to use the theme is complete free but you can not remove the footer links, please read the license from https://www.styleshout.com/template-license/
+Calvin is based on Calvin template by [Styleshout.com](https://www.styleshout.com/free-templates/calvin/), to use the theme is complete free but you can not remove the footer links, please read the license from https://www.styleshout.com/template-license/
 
 ## Screenshot
 ![screenshot-Calvin](https://github.com/geraldribisch/calvin/blob/main/screenshot.webp?raw=true)

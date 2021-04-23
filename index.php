@@ -1,13 +1,4 @@
-<!-- Calvin for Bludit by Gerald Ribisch ================================================== -->
 <?php
-
-function console_log($output, $with_script_tags = true) {
-    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . ');';
-    if ($with_script_tags) {
-        $js_code = '<script>' . $js_code . '</script>';
-    }
-    echo $js_code;
-}
 
 $posts = array();
 $stickyPosts = array();
@@ -106,8 +97,13 @@ foreach($content as $page) {
                     <?php endif ?>
                         <a href="#0" title="">Categories</a>
                         <ul class="sub-menu">
-                        <?php foreach ($categories->db as $categoryKey=>$categoryFields): ?>
-                        <li><a href="<?php echo DOMAIN_CATEGORIES.$categoryKey ?>"><?php echo $categoryFields['name'] ?></a></li>
+                        <?php	$items = getCategories();
+
+						foreach ($items as $category) :
+							// Each category is an Category-Object
+							if (count($category->pages())>0): ?>
+								<li><a href="<?php echo $category->permalink() ?>"><?php echo $category->name() ?></a></li>
+							<?php endif ?>
                         <?php endforeach ?>
                         </ul>
                     </li>
@@ -209,7 +205,9 @@ foreach($content as $page) {
                         
                         <!-- Static pages -->
                         <?php foreach ($staticContent as $staticPage): ?>
+
                         <li><a href="<?php echo $staticPage->permalink() ?>"><?php echo $staticPage->title() ?></a></li>
+						
                         <?php endforeach ?>
                         
                     </ul>

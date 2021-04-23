@@ -2,8 +2,8 @@
 	"author": "Gerald",
 	"email": "",
 	"website": "https://github.com/geraldribisch/calvin/",
-	"version": "1.0",
-	"releaseDate": "2021-04-13",
+	"version": "1.1",
+	"releaseDate": "2021-04-23",
 	"license": "MIT",
 	"compatible": "3.13.1",
 	"notes": "A clean, simple, and versatile blog template designed by StyleShout"
